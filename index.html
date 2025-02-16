@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jupiter Facts</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            animation: gradient 5s ease infinite;
+            font-family: Arial, sans-serif;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .fact-display {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            transition: opacity 0.5s ease;
+        }
+
+        .fact-button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .fact-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="fact-display" class="fact-display">Click the button to see a fact about Jupiter!</div>
+        <button id="fact-button" class="fact-button">Show Random Fact</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const facts = [
+                "Jupiter is the largest planet in our solar system.",
+                "Jupiter has a Great Red Spot, which is a giant storm larger than Earth.",
+                "Jupiter has at least 79 moons, with the four largest being Ganymede, Callisto, Io, and Europa.",
+                "Jupiter is a gas giant, primarily composed of hydrogen and helium.",
+                "Jupiter has a very strong magnetic field, much stronger than Earth's.",
+                "A day on Jupiter is only about 10 hours long, making it the fastest spinning planet in the solar system.",
+                "Jupiter's atmosphere features bands of clouds and storms, giving it a striped appearance.",
+                "The planet's gravity is 2.4 times that of Earth's.",
+                "Jupiter does not have a solid surface; it is mostly made up of swirling gases and liquids.",
+                "Jupiter's moon Ganymede is the largest moon in the solar system, even larger than the planet Mercury."
+            ];
+
+            const factDisplay = document.getElementById('fact-display');
+            const factButton = document.getElementById('fact-button');
+
+            factButton.addEventListener('click', () => {
+                const randomIndex = Math.floor(Math.random() * facts.length);
+                factDisplay.style.opacity = 0;
+                setTimeout(() => {
+                    factDisplay.textContent = facts[randomIndex];
+                    factDisplay.style.opacity = 1;
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
